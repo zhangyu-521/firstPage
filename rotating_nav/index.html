@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+  </head>
+  <body
+    class="bg-black overflow-hidden overflow-y-auto overflow-x-hidden w-[100vw] m-0 p-0 box-border"
+  >
+    <main
+      id="main"
+      class="w-full h-full transition-all duration-700 origin-top-left"
+    >
+      <div
+        id="circle"
+        class="z-100 rounded-[50%] w-[200px] h-[200px] bg-[#ff7979] fixed left-[-100px] top-[-100px] text-center flex items-center text-[#fff] transition-all duration-700 cursor-pointer"
+      >
+        <div id="close" class="flex-1 mt-[90px] rotate-[90deg]">×</div>
+        <div id="open" class="flex-1 mt-[90px]">√</div>
+      </div>
+      <div class="bg-white h-full pt-30 pl-60 pr-60">
+        <h2>My introduce</h2>
+        <div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat sed
+          sapiente laudantium incidunt ex praesentium autem fugit vitae animi
+          architecto laborum atque quidem inventore quia, totam quod ad corrupti
+          ducimus?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse
+          quia dolorum quisquam, optio et eligendi id culpa! Molestias dicta
+          similique nam qui fuga laborum. Vero cupiditate magnam consequuntur
+          modi velit?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Adipisci impedit maxime eligendi animi? Excepturi libero ut ducimus
+          reprehenderit tempore aliquam dolorem labore asperiores! Perspiciatis,
+          aliquid ea? Ducimus tempora repellat qui.
+        </div>
+        <h2>My cat</h2>
+        <div>
+          <p>it is xiaobiga</p>
+          <img
+            class="w-300px transition"
+            src="./static/5bca52ad8c7e5f9806e57d82e419fd5.jpg"
+          />
+        </div>
+      </div>
+    </main>
+
+    <nav
+      class="translate-x--40 fixed bottom-20 transition text-white duration-700 font-bold text-[20px]"
+    >
+      <ul class="list-none cursor-pointer leading-10">
+        <li class="pl2">Home</li>
+        <li class="pl4">About</li>
+        <li class="pl6">Contact</li>
+      </ul>
+    </nav>
+  </body>
+  <script>
+    const openId = document.querySelector('#open');
+    const closeId = document.querySelector('#close');
+    const circleId = document.querySelector('#circle');
+    const mainId = document.querySelector('#main');
+    const img = document.querySelector('img');
+    const nav = document.querySelector('nav');
+    img.onclick = () => {
+      console.log(Array.from(img.classList));
+      if (Array.from(img.classList).includes('rotate-360')) {
+        img.classList.remove('rotate-360');
+      } else {
+        img.classList.add('rotate-360');
+      }
+    };
+
+    openId.addEventListener('click', () => {
+      circleId.classList.add('rotate-[-90deg]');
+      mainId.classList.add('rotate-[-15deg]');
+      nav.classList.remove('translate-x--40');
+    });
+
+    closeId.addEventListener('click', () => {
+      circleId.classList.remove('rotate-[-90deg]');
+      mainId.classList.remove('rotate-[-15deg]');
+      nav.classList.add('translate-x--40');
+    });
+  </script>
+</html>
